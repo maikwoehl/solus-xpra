@@ -1,8 +1,8 @@
 name       : xpra
-version    : 4.4.1
-release    : 5
+version    : 5.0
+release    : 6
 source     :
-    - https://github.com/Xpra-org/xpra/archive/refs/tags/v4.4.1.tar.gz : 8d03fec4e22e1946e798ed2dbfaaf87fa50f385a35024ab66e615974b884402b
+    - https://github.com/Xpra-org/xpra/archive/refs/tags/v5.0.tar.gz : 69bf2da133a6ee28ad4e3a849f997b32e5bab4f4b616ff5acd0811e8ac9e4c14
 homepage   : https://xpra.org
 license    : GPL-2.0-or-later
 component  : desktop
@@ -12,6 +12,7 @@ description: |
 builddeps  :
     - pkgconfig(gtk+-3.0)
     - pkgconfig(liblz4)
+    - pkgconfig(libavutil)
     - pkgconfig(py3cairo)
     - pkgconfig(pygobject-3.0)
     - pkgconfig(xkbfile)
@@ -28,7 +29,6 @@ rundeps    :
     - xorg-server-xvfb
 setup      : |
     mv -v $workdir/fs/etc/sysconfig/xpra $workdir/fs/etc/sysconfig/xpra.env
-    %apply_patches
 build      : |
     %python3_setup --without-Xdummy --without-Xdummy_wrapper
 install    : |
